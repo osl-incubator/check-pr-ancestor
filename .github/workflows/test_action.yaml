@@ -1,0 +1,22 @@
+name: Test Action
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  check-pr-is-updated:
+    runs-on: ubuntu-latest
+    name: Test if the PR is updated
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Review PR diff
+        id: check_pr_is_updated
+        uses: ./ # Uses an action in the root directory
+        # or use a released Github Action
+        # uses: osl-incubator/gh-check-pr-is-updated@1.0.0
+        with:
+          remote_branch: 'origin/main'
+          pr_sha: ${{ github.event.pull_request.head.sha }}

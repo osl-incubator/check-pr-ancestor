@@ -1,0 +1,7 @@
+name: gh-check-pr-is-updated
+channels:
+  - nodefaults
+  - conda-forge
+dependencies:
+  - python 3.8.1
+  - git
