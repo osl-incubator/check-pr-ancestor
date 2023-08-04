@@ -6,7 +6,6 @@ inputs:
   remote_branch:
     description: 'Remote branch (e.g.: upstream/main)'
     required: true
-    default: 'upstream/main'
   pr_sha:
     description: 'PR SHA'
     required: true
