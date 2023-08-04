@@ -1,5 +1,5 @@
 # action.yaml
-name: 'gh-checker-pr-is-updated'
+name: gh-check-pr-is-updated
 description: 'GitHub Actions check if PR's branch is updated'
 inputs:
   remote_branch:
