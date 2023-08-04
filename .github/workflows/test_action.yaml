@@ -2,8 +2,6 @@ name: Test Action
 on:
   pull_request:
     branches: ["main"]
-  push:
-    branches: ["main"]
 
 jobs:
   check-pr-is-updated:
@@ -13,6 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: 'check if the PR branch is updated or not'
         id: check_pr_is_updated
