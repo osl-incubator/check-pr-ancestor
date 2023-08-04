@@ -15,8 +15,11 @@ branding:
   color: green
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.remote_branch }}
-    - ${{ inputs.pr_sha }}
+  using: 'composite'
+  steps:
+    name: check if the PR branch is updated
+    run: |
+      if ! git merge-base --is-ancestor ${{ inputs.remote_branch }} ${{ inputs.pr_sha }}; then
+        echo "This branch is not up to date with ${{ inputs.remote_branch }}";
+        exit 1;
+      fi
