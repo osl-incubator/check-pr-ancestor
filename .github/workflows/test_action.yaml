@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Review PR diff
+      - name: 'check if the PR branch is updated or not'
         id: check_pr_is_updated
         uses: ./ # Uses an action in the root directory
         # or use a released Github Action
